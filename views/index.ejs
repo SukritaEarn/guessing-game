@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
+        .button {
+          background-color: black;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-blok;
+          font-size: 16px;
+          font-family: 'Gotu', sans-serif;
+          border: 2px solid black;
+          border-radius: 12px;
+          transition-duration: 0.4s;
+          margin: 10px 185px;
+        }
+        .button:hover {
+          background-color: white;
+          color: black;
+        }
+        h1, h2, p{
+          font-family: 'Gotu', sans-serif;
+          text-align: center;
+        }
+        div {
+          width: 500px;
+        }
+    </style>
+    <div>
+        <h1 style="margin-left: 20px;">MongoDB Homework</h1>
+        <h2 style="margin-left: 35px;">Alphabet Guessing Game</h2>
+        <% if (start == 0) { %>
+            <form action="/start" method="POST">
+                <button type="submit" class="button">Start</button>
+            </form>
+        <% } else if (start == 1 && level >= 0 && level <= 3) { %>
+            <p>Set the question with A, B, C, or D character</p>
+            <p>Question: <%= question %></p>
+            <form action="/set_question" method="POST">
+                <p style="display: inline; margin-left: 150px;">Choose:</p>
+                <input value="A" name="button_q" type="submit" />
+                <input value="B" name="button_q" type="submit" />
+                <input value="C" name="button_q" type="submit" />
+                <input value="D" name="button_q" type="submit" />
+            </form>
+        <% } else if (start == 1 && level >= 4 && level <= 7) { %>
+            <p>Please choose A, B, C, or D character</p>
+            <p>Answer: <%= answer %></p>
+            <p>Character(s) remaining: <%= guessing %></p>
+            <p>Fail: <%= fail %></p>
+            <p>Score: <%= score %></p>
+            <form action="/guessing" method="POST">
+                <p style="display: inline; margin-left: 150px;">Choose:</p>
+                <input value="A" name="button_g" type="submit" />
+                <input value="B" name="button_g" type="submit" />
+                <input value="C" name="button_g" type="submit" />
+                <input value="D" name="button_g" type="submit" />
+            </form>
+        <% } else if (level == 8) { %>
+            <h2 style="color:chartreuse">YOU WIN!</h2>
+            <p>Answer: <%= answer %></p>
+            <p>Score: <%= score %></p>
+            <form action="/start" method="POST">
+                <button type="submit" class="button">Restart</button>
+            </form>
+            <% } %>
+    </div>
+</html>
