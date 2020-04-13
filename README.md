@@ -5,9 +5,14 @@ Name: Sukrita Kittipitayakorn
 ## How to run
 
 Step 1: Activate mongodb server.
+
 Step 2: Instal additional package
-        $ npm install
+
+    $ npm install
+
 Step 3: Run program.
-        $ node server.js
+
+    $ node server.js
+
 Step 4: Go to localhost in website.
 
